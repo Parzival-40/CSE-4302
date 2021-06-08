@@ -19,6 +19,10 @@ public:
 		this->unitPrice=price;
 	}
 	void setDiscountPercent(double percent=5){
+		if(percent<0||percent>45){
+			cout<<"Discount has to be between 0%-45%"<<endl;
+			return;
+		}
 		this->discountPercent=percent;
 	}
 	double getSellingPrice(int nos){
