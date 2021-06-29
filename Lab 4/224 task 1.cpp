@@ -19,8 +19,8 @@ public:
 		{}
 	~BankAccount(){
 		cout<<"Account of "<<holder_name
-			<<"with account number "<<number
-			<<"is destroyed with a balance BDT "<<current_balance<<endl;
+			<<" with account number "<<number
+			<<" is destroyed with a balance BDT "<<current_balance<<endl;
 	}
 	void info(){
 		cout<<"Account Holder: "<<holder_name<<endl
@@ -46,3 +46,17 @@ public:
 		current_balance+=(net_interest-net_interest*.1);
 	}
 };
+
+
+int main(){
+	BankAccount a(224,"Kafi","Current",1234,12);
+	a.info();
+	a.showBalance();
+	a.diposite(1234);
+	a.withdraw(12312412);
+	a.withdraw(1234);
+	a.showBalance();
+	a.giveInterest();
+	a.giveInterest(10);
+	a.info();
+}

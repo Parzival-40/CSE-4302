@@ -1,4 +1,7 @@
+#include <iostream>
 #include <cmath>
+
+using namespace std;
 
 class Rectangle{
 private:
@@ -15,7 +18,7 @@ public:
 		return sqrt(width*width+length*length);
 	}
 	double angle_between_length_and_diagonal(){
-		return atan(width/length);
+		return atan(length/width);
 	}
 	void set_width(double width){
 		if(width<1||width>20)return;
@@ -24,7 +27,7 @@ public:
 	double get_width(){
 		return width;
 	}
-	void set_lenght(double length){
+	void set_length(double length){
 		if(length<1||length>20)return;
 		this->length=length;
 	}
@@ -32,3 +35,25 @@ public:
 		return length;
 	}
 };
+
+int main(){
+	Rectangle a(20,10);
+
+	cout<<"Length: "<<a.get_length()<<endl
+		<<"Width: "<<a.get_width()<<endl
+		<<"Area: "<<a.area()<<endl
+		<<"Perimeter: "<<a.Perimeter()<<endl
+		<<"Diagonal: "<<a.diagonal()<<endl
+		<<"Angle between length and diagonal: "<<a.angle_between_length_and_diagonal()<<endl;
+	
+	a.set_width(10);
+	a.set_length(20);
+
+	cout<<"Length: "<<a.get_length()<<endl
+		<<"Width: "<<a.get_width()<<endl
+		<<"Area: "<<a.area()<<endl
+		<<"Perimeter: "<<a.Perimeter()<<endl
+		<<"Diagonal: "<<a.diagonal()<<endl
+		<<"Angle between length and diagonal: "<<a.angle_between_length_and_diagonal()<<endl;
+
+}

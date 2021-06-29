@@ -29,8 +29,14 @@ public:
 	void ShowInfo(){
 		cout<<"Name: "<<EmpName<<endl
 			<<"ID: "<<ID<<endl
-			<<"Age"<<age<<endl
-			<<"Salary"<<salary<<endl
+			<<"Age: "<<age<<endl
+			<<"Salary: "<<salary<<endl
 			<<"Status: "<<getstatus()<<" Salaried Person"<<endl;
 	}
 };
+
+int main(){
+	Employee a;
+	a.FeedInfo("Kafi", 224, 20, 3000);
+	a.ShowInfo();
+}
