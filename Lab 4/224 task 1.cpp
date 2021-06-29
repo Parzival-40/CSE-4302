@@ -52,11 +52,12 @@ int main(){
 	BankAccount a(224,"Kafi","Current",1234,12);
 	a.info();
 	a.showBalance();
-	a.diposite(1234);
+	a.diposite(12345);
 	a.withdraw(12312412);
 	a.withdraw(1234);
 	a.showBalance();
 	a.giveInterest();
+	a.showBalance();
 	a.giveInterest(10);
-	a.info();
+	a.showBalance();
 }
