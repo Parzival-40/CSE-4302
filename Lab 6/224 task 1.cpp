@@ -12,6 +12,8 @@ public:
 	  : count(count),
 		step_val(step_val) {}
 	void setIncrementStep(int step_val) {
+		if (step_val < 1)
+			return;
 		this->step_val = step_val;
 	}
 	int getCount() {
@@ -25,13 +27,14 @@ public:
 	}
 
 	Counter operator++() {
-		int x = count += step_val;
+		increment();
+		int x = count;
 		return Counter(x, step_val);
 	}
 
 	Counter operator++(int) {
 		int x = count;
-		count += step_val;
+		increment();
 		return Counter(x, step_val);
 	}
 
@@ -63,13 +66,25 @@ ostream& operator<<(ostream& out, const Counter& a) {
 	return out;
 }
 
+void print(Counter& c1, Counter& c2, Counter& c3) {
+	cout << "c1,c2,c3: " << c1 << ',' << c2 << ',' << c3 << endl
+		 << "(c1 = c2 + c3): " << (c1 = c2 + c3) << endl
+		 << "c1++: " << c1++ << endl
+		 << "c2++: " << c2++ << endl
+		 << "c3++: " << c3++ << endl
+		 << "++c1: " << ++c1 << endl
+		 << "++c2: " << ++c2 << endl
+		 << "++c3: " << ++c3 << endl
+		 << endl;
+}
+
 int main() {
 	Counter c1, c2, c3;
-	cout << (c1 = c2 + c3) << endl;
-	int var = 5;
-	cout << (c1 = var + c2) << endl
-		 << (c1 = c2 + var) << endl
-		 << (c1 += c2) << endl
-		 << (c1 = ++c2) << endl
-		 << (c1 = c2++) << endl;
+	print(c1, c2, c3);
+	c1.setIncrementStep(2);
+	c2.setIncrementStep(3);
+	c3.setIncrementStep(4);
+	print(c1, c2, c3);
+	c1 += c2 += c3;
+	print(c1, c2, c3);
 }
