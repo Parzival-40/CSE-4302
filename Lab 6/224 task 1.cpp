@@ -25,11 +25,14 @@ public:
 	}
 
 	Counter operator++() {
-		return Counter(++count, step_val);
+		int x = count += step_val;
+		return Counter(x, step_val);
 	}
 
 	Counter operator++(int) {
-		return Counter(count++, step_val);
+		int x = count;
+		count += step_val;
+		return Counter(x, step_val);
 	}
 
 	friend Counter operator+(const Counter& a, const Counter& b);
