@@ -149,7 +149,7 @@ You may need to add some member functions
 void sort_furniture_discount(Furniture* furnitures[], int no_of_furnitures) {
 	for (int i = 0; i < no_of_furnitures; i++) {
 		for (int j = 0; j < no_of_furnitures; j++) {
-			if ((*furnitures[i]).discount < (*furnitures[j]).discount) {
+			if ((*furnitures[i]).discount > (*furnitures[j]).discount) {
 				swap(*furnitures[i], *furnitures[j]);
 			}
 		}
