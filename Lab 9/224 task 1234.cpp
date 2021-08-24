@@ -46,6 +46,7 @@ public:
 		if (val <= price)
 			discount = val;
 	}
+	double getDiscoutn(){return discount;}
 	void setMadeof(Material val) {
 		madeof = val;
 	}
@@ -191,5 +192,9 @@ int main() {
 	for (int i = 0; i < 4; i++) {
 		f_list[i]->productDetails();
 	}
+
+	f_list[0]->setDiscount(f_list[0]->discount+50);
+	f_list[1]->setDiscount(f_list[1]->discount+50);
+
 	/**task 4 ends here*/
 }
