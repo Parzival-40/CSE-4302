@@ -31,7 +31,7 @@ public:
 	time24()
 	  : hours(0), minutes(0), seconds(0) {}
 	time24(int h, int m, int s)
-	  : hours(h), minutes(h), seconds(h) {}
+	  : hours(h), minutes(m), seconds(s) {}
 	void display() const {
 		if (hours < 10) cout << '0';
 		cout << hours << ':';
@@ -51,7 +51,7 @@ time24::operator time12() const {
 		roundMins = 0;
 		++hrs24;
 		if (hrs24 == 12 || hrs24 == 24)
-			pm = (pm == true) ? false : true;
+			pm = !pm;
 	}
 	int hrs12 = (hrs24 < 13) ? hrs24 : hrs24 - 12;
 	if (hrs12 == 0) {

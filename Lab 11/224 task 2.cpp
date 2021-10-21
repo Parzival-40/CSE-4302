@@ -346,13 +346,11 @@ void staff::read() {
 	staff::clear();
 	staffType stype;
 	typistType ttype;
-	while (true) {
+	while (fin.eof()) {
 		fin.read((char*)&stype, sizeof(stype));
 		if (stype == staffType::typist) {
 			fin.read((char*)&ttype, sizeof(ttype));
 		}
-		if (fin.eof())
-			break;
 		if (!fin) {
 			cout << "Error Opening file!!!" << endl;
 		}
